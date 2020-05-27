@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Текущее время</title>
+</head>
+<body>
+    <h1>Список файлов</h1>
+    {% for filename in files_list %}
+        {{filename}}
+        <br>
+    {% endfor %}
+    <br>
+    <a href="{{ home_url }}">Главная страница</a>
+</body>
+</html>
