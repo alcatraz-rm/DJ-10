@@ -9,6 +9,7 @@ def file_list(request, date: datetime = None):
     template_name = 'index.html'
     files_list = os.listdir(settings.FILES_PATH)
     files = []
+
     # Реализуйте алгоритм подготавливающий контекстные данные для шаблона по примеру:
     for file in files_list:
         stat = os.stat(os.path.join(settings.FILES_PATH, file))

@@ -23,10 +23,10 @@ def index(request):
     # Реализуйте логику подсчета количества переходов с лендига по GET параметру from-landing
     from_landing = request.GET.get('from-landing')
 
-    if from_landing == 'original':
-        increase_counter('click', 'original')
-    elif from_landing == 'test':
+    if from_landing == 'test':
         increase_counter('click', 'test')
+    else:
+        increase_counter('click', 'original')
 
     return render_to_response('index.html')
 
