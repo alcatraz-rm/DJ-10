@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Каталог{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="header">
+          <h1>Сравнение телефонов</h1>
+          <table width="1000" cellpadding="10" cellspacing="0">
+          <tr>
+          <td width="5000"><b>Модель</b></td>
+          {% for phone in phones_list %}
+              <td width="5000"><b>{{ phone.name }}</b></td>
+          {% endfor %}
+          </tr>
+          <tr>
+          <td width="5000">Стоимость</td>
+          {% for phone in phones_list %}
+              <td width="5000">{{ phone.price }}</td>
+          {% endfor %}
+          </tr>
+          <tr>
+          <td width="5000">3G</td>
+          {% for phone in phones_list %}
+              {% if phone.has_3g %}
+                <td width="5000">Есть</td>
+              {% else %}
+                  <td width="5000">-</td>
+              {% endif %}
+          {% endfor %}
+          </tr>
+          <tr>
+          <td width="5000">LTE</td>
+          {% for phone in phones_list %}
+            {% if phone.has_lte %}
+                <td width="5000">Есть</td>
+              {% else %}
+                  <td width="5000">-</td>
+              {% endif %}
+          {% endfor %}
+          </tr>
+          <tr>
+          <td width="5000">Количество сим-карт</td>
+          {% for phone in phones_list %}
+          <td width="5000">{{ phone.sims_count }}</td>
+          {% endfor %}
+          </tr>
+          <tr>
+          <td width="5000">Операционная система</td>
+          {% for phone in phones_list %}
+          <td width="5000">{{ phone.operational_system }}</td>
+          {% endfor %}
+          </tr>
+          <tr>
+          <td width="5000">Оперативная память</td>
+          {% for phone in phones_list %}
+          <td width="5000">{{ phone.ram }}</td>
+          {% endfor %}
+          </tr>
+          <tr>
+          <td width="5000">Память устройства</td>
+          {% for phone in phones_list %}
+          <td width="5000">{{ phone.device_memory }}</td>
+          {% endfor %}
+          </tr>
+          <tr>
+          <td width="5000">Процессор</td>
+          {% for phone in phones_list %}
+          <td width="5000">{{ phone.processor }}</td>
+          {% endfor %}
+          </tr>
+          <tr>
+          <td width="5000">FM-радио</td>
+          {% for phone in phones_list %}
+            {% if phone.has_fm %}
+                <td width="5000">Есть</td>
+              {% else %}
+                  <td width="5000">-</td>
+              {% endif %}
+          {% endfor %}
+          </tr>
+          <tr>
+          <td width="5000">Bluetooth</td>
+          {% for phone in phones_list %}
+            {% if phone.has_bluetooth %}
+                <td width="5000">Есть</td>
+              {% else %}
+                  <td width="5000">-</td>
+              {% endif %}
+          {% endfor %}
+          </tr>
+          <tr>
+          <td width="5000">GPS</td>
+          {% for phone in phones_list %}
+            {% if phone.has_gps %}
+                <td width="5000">Есть</td>
+              {% else %}
+                  <td width="5000">-</td>
+              {% endif %}
+          {% endfor %}
+          </tr>
+          </table>
+        </div>
+    </div>
+{% endblock %}
