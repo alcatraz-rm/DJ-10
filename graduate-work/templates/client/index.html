@@ -47,14 +47,24 @@
 
 
     </ul>
+    {% if user %}
+    <p>{{ user }}</p>
+    {% endif %}
+
     <a class="btn btn-outline-success my-2 my-sm-0" role="button"
        href="./cart.html">
       Корзина</a>
 
 
+    {% if not user %}
     <a class="btn btn-outline-success my-2 my-sm-0" role="button"
-       href="../registration/login.html">
+       href="{% url 'login' %}">
       Войти</a>
+    {% else %}
+    <a class="btn btn-outline-success my-2 my-sm-0" role="button"
+       href="{% url 'logout' %}">
+      Выйти</a>
+    {% endif %}
 
   </div>
 </nav>
