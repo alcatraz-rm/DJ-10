@@ -14,4 +14,4 @@ def index_view(request):
 
 
 class LogoutView(DJLogoutView):
-    template_name = os.path.join('registration', 'login.html')
+    next_page = 'login'
