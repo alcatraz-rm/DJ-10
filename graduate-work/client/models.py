@@ -1,8 +1,6 @@
 from django.db import models
 from django.conf import settings
 
-# Create your models here.
-
 
 class Product(models.Model):
     name = models.CharField(max_length=128, verbose_name='Название')
@@ -33,7 +31,9 @@ class Category(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=256, verbose_name='Заголовок')
     text = models.TextField(verbose_name='Текст')
-    product = models.ForeignKey('Product', verbose_name='Товар', on_delete=models.CASCADE)
+    product = models.ManyToManyField('Product', verbose_name='Товар')
+    creation_date = models.DateField(verbose_name='Дата создания', auto_now_add=True)
+    show = models.BooleanField(verbose_name='Показывать на главной странице', default=True)
 
     class Meta:
         verbose_name = 'Статья'
@@ -46,6 +46,7 @@ class Article(models.Model):
 class Order(models.Model):
     products_list = models.ManyToManyField('Product', verbose_name='Список товаров')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='Клиент', on_delete=models.CASCADE)
+    creation_date = models.DateField(verbose_name='Дата создания', auto_now_add=True)
 
     def products_number(self):
         return len(self.products_list)

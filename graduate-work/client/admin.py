@@ -14,10 +14,11 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'product')
+    list_display = ('title',)
+    date_hierarchy = 'creation_date'
 
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('user', 'products_number',)
-
+    date_hierarchy = 'creation_date'
