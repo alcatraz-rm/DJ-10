@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.auth.views import LoginView
-from django.urls import path
+from django.urls import path, register_converter
 
-from client.views import index_view, LogoutView
+from client.views import index_view, LogoutView, cart_view, category_view
+from client.converters import CategoryConverter
+
+
+register_converter(CategoryConverter, 'category')
 
 
 urlpatterns = [
@@ -25,4 +29,6 @@ urlpatterns = [
     path('', index_view, name='index'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
+    path('cart/', cart_view, name='cart'),
+    path('<category:product_category>/', category_view, name='category'),
 ]
