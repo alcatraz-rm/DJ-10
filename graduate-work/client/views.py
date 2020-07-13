@@ -3,14 +3,15 @@ import os
 from django.shortcuts import render
 from django.contrib.auth.views import LogoutView as DJLogoutView
 
-# Create your views here.
+from .models import Article
 
 
 def index_view(request):
     template = os.path.join('client', 'index.html')
     username = request.user.username
+    articles_to_show = Article.objects.filter(show=True)
 
-    return render(request, template, context={'user': username})
+    return render(request, template, context={'user': username, 'articles_list': articles_to_show})
 
 
 def cart_view(request):
@@ -19,14 +20,14 @@ def cart_view(request):
     return render(request, template)
 
 
-def product_view(request):
+def product_view(request, *args, **kwargs):
     template = os.path.join('client', 'product.html')
 
-    return render(request, template)
+    return render(request, template, context={'product': kwargs['id']})
 
 
-def category_view(request):
-    template = os.path.join('client', 'category.html')
+def section_view(request):
+    template = os.path.join('client', 'section.html')
 
     return render(request, template)
 

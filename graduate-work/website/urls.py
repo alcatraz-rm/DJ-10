@@ -13,15 +13,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.views import LoginView
 from django.urls import path, register_converter
 
-from client.views import index_view, LogoutView, cart_view, category_view
-from client.converters import CategoryConverter
+from client.views import index_view, LogoutView, cart_view, section_view, product_view
+from client.converters import SectionConverter, ProductIDConverter
 
 
-register_converter(CategoryConverter, 'category')
+register_converter(SectionConverter, 'section')
+register_converter(ProductIDConverter, 'product_id')
 
 
 urlpatterns = [
@@ -30,5 +33,6 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('cart/', cart_view, name='cart'),
-    path('<category:product_category>/', category_view, name='category'),
-]
+    path('<section:section>/', section_view, name='section'),
+    path('product/<product_id:id>/', product_view, name='product'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,15 +1,15 @@
 from django.contrib import admin
-from .models import Category, Product, Article, Order
+from .models import Section, Product, Article, Order
 
 
-@admin.register(Category)
+@admin.register(Section)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'category',)
+    list_display = ('name', 'price',)
 
 
 @admin.register(Article)

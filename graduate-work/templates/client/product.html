@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+{% extends 'base.html' %}
+{% load static %}
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Graduation Work</title>
-  <link rel="stylesheet" href="./static/bootstrap.min.css">
-  <link rel="stylesheet" href="./static/main.css">
-</head>
-<body class="" data-gr-c-s-loaded="true">
+{% block body_class %}{% endblock %}
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+{% block content %}
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <a class="navbar-brand" href="./merch/1/#">Просто магазин</a>
-  <img src="./static/logo.svg" alt="" width="42" height="42">
+  <img src="{% static 'logo.svg' %}" alt="" width="42" height="42">
   <button class="navbar-toggler" type="button" data-toggle="collapse"
           data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
           aria-expanded="false" aria-label="Toggle navigation">
@@ -48,12 +42,12 @@
 
     </ul>
     <a class="btn btn-outline-success my-2 my-sm-0" role="button"
-       href="./cart/">
+       href="{% url 'cart' %}">
       Корзина</a>
 
 
     <a class="btn btn-outline-success my-2 my-sm-0" role="button"
-       href="./logout/">
+       href="{% url 'logout' %}">
       Выйти</a>
 
   </div>
@@ -67,14 +61,13 @@
     <!-- Example row of columns -->
     <div class="row">
       <div class="col-md-12">
-        <h2>Nexus 5x</h2>
+        <h2>{{ product }}</h2>
 
-        <img src="./static/nexus5x.webp" width="120">
+        <img src="/media/{{ product.image }}" width="120">
 
         <p>Неплохой телефон</p>
-        <form method="post" action="./cart/">
-          <input type="hidden" name="csrfmiddlewaretoken"
-                 value="N4vcBqzjoYkU7OTDuAT8hq8srpvYX44nJsswuP7e3EYg0Hq8DgxuR0eiXWbSr5RZ">
+        <form method="post" action="{% url 'cart' %}">
+            {% csrf_token %}
           <input type="hidden" name="merchandise_id" value="1">
           <input type="submit" class="btn btn-secondary" value="Добавить в корзину »">
         </form>
@@ -95,8 +88,7 @@
         <h4>Оставте отзыв:</h4>
 
         <form action="./merch/1/feedback" method="post">
-          <input type="hidden" name="csrfmiddlewaretoken"
-                 value="N4vcBqzjoYkU7OTDuAT8hq8srpvYX44nJsswuP7e3EYg0Hq8DgxuR0eiXWbSr5RZ">
+            {% csrf_token %}
           <div class="form-group">
             <label for="name">Имя</label>
             <input type="text" class="form-control" id="name" aria-describedby="nameHelp"
@@ -152,10 +144,4 @@
 
 
 </main>
-
-<script src="./static/jquery-3.3.1.slim.min.js"></script>
-<script src="./static/popper.min.js"></script>
-<script src="./static/bootstrap.min.js"></script>
-
-</body>
-</html>
+{% endblock %}

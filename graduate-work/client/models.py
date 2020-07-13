@@ -5,7 +5,6 @@ from django.conf import settings
 class Product(models.Model):
     name = models.CharField(max_length=128, verbose_name='Название')
     price = models.FloatField(verbose_name='Цена')
-    category = models.ForeignKey('Category', verbose_name='Категория', null=True, on_delete=models.SET_NULL)
     image = models.ImageField(verbose_name='Изображение')
     description = models.TextField(verbose_name='Описание', blank=True, null=True)
 
@@ -17,8 +16,9 @@ class Product(models.Model):
         return self.name
 
 
-class Category(models.Model):
+class Section(models.Model):
     name = models.CharField(max_length=128, verbose_name='Название')
+    products_list = models.ManyToManyField(Product, related_name='sections_list', verbose_name='Список товаров')
 
     class Meta:
         verbose_name = 'Раздел'
@@ -31,7 +31,7 @@ class Category(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=256, verbose_name='Заголовок')
     text = models.TextField(verbose_name='Текст')
-    product = models.ManyToManyField('Product', verbose_name='Товар')
+    products = models.ManyToManyField('Product', verbose_name='Товар')
     creation_date = models.DateField(verbose_name='Дата создания', auto_now_add=True)
     show = models.BooleanField(verbose_name='Показывать на главной странице', default=True)
 

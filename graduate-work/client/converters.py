@@ -1,16 +1,32 @@
-from .models import Category
+from .models import Section, Product
 
 
-class CategoryConverter:
+class SectionConverter:
     regex = ''
 
     def to_python(self, value):
-        category = Category.objects.get(name=value)
+        section = Section.objects.get(name=value)
 
-        if not category:
-            raise ValueError('Invalid category')
+        if not section:
+            raise ValueError('Invalid section')
 
-        return category
+        return section
 
     def to_url(self, value):
         return value.name
+
+
+class ProductIDConverter:
+    regex = '[0-9]'
+
+    def to_python(self, value):
+        product = Product.objects.get(id=value)
+
+        if not product:
+            raise ValueError('Invalid product id')
+
+        return product
+
+    def to_url(self, value):
+        return value.name
+
