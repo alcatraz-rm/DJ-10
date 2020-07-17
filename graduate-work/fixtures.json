@@ -1,5 +1,43 @@
 [
 {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$5YPMR0rsYpiw$8M8g7zwY7KCOnwcp8jqJIMTuF4YcusiJ6UWTDapFoyE=",
+        "last_login": "2020-07-08T10:27:01.019Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2020-07-07T11:45:56.982Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$EVp6pi6advsQ$yuuyw2g90Y56NhnIE/jrTz3hSCC3BfGpPfU7tAyrZP8=",
+        "last_login": "2020-07-08T09:46:58.033Z",
+        "is_superuser": false,
+        "username": "admin@admin.ru",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2020-07-07T11:47:48Z",
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
     "model": "client.product",
     "pk": 2,
     "fields": {
@@ -75,44 +113,6 @@
         "products": [
             6
         ]
-    }
-},
-{
-    "model": "auth.user",
-    "pk": 1,
-    "fields": {
-        "password": "pbkdf2_sha256$150000$5YPMR0rsYpiw$8M8g7zwY7KCOnwcp8jqJIMTuF4YcusiJ6UWTDapFoyE=",
-        "last_login": "2020-07-08T10:27:01.019Z",
-        "is_superuser": true,
-        "username": "admin",
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2020-07-07T11:45:56.982Z",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "auth.user",
-    "pk": 2,
-    "fields": {
-        "password": "pbkdf2_sha256$150000$EVp6pi6advsQ$yuuyw2g90Y56NhnIE/jrTz3hSCC3BfGpPfU7tAyrZP8=",
-        "last_login": "2020-07-08T09:46:58.033Z",
-        "is_superuser": false,
-        "username": "admin@admin.ru",
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2020-07-07T11:47:48Z",
-        "groups": [
-            1
-        ],
-        "user_permissions": []
     }
 }
 ]
