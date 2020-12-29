@@ -1,0 +1,80 @@
+[
+{
+    "model": "client.product",
+    "pk": 2,
+    "fields": {
+        "name": "Nexus 5X",
+        "price": 9985.0,
+        "image": "nexus5x.webp",
+        "description": "\u041d\u0435\u043f\u043b\u043e\u0445\u043e\u0439 \u0442\u0435\u043b\u0435\u0444\u043e\u043d"
+    }
+},
+{
+    "model": "client.product",
+    "pk": 3,
+    "fields": {
+        "name": "iPhone 7",
+        "price": 15790.0,
+        "image": "iphone7.webp",
+        "description": "\u0422\u0435\u043b\u0435\u0444\u043e\u043d \u0441 \u044f\u0431\u043b\u043e\u043a\u043e\u043c"
+    }
+},
+{
+    "model": "client.product",
+    "pk": 4,
+    "fields": {
+        "name": "Pixel 2",
+        "price": 28900.0,
+        "image": "pixel2.webp",
+        "description": "\u041a\u043b\u0430\u0441\u0441\u043d\u0430\u044f \u043a\u0430\u043c\u0435\u0440\u0430"
+    }
+},
+{
+    "model": "client.product",
+    "pk": 5,
+    "fields": {
+        "name": "Samsung Galaxy S8",
+        "price": 31990.0,
+        "image": "samsungs8.webp",
+        "description": "\u0411\u0435\u0437\u0433\u0440\u0430\u043d\u0438\u0447\u043d\u044b\u0439 \u044d\u043a\u0440\u0430\u043d"
+    }
+},
+{
+    "model": "client.product",
+    "pk": 6,
+    "fields": {
+        "name": "\u0424\u0443\u0444\u0430\u0439\u043a\u0430",
+        "price": 600.0,
+        "image": "fufajka.jpg",
+        "description": ""
+    }
+},
+{
+    "model": "client.article",
+    "pk": 1,
+    "fields": {
+        "title": "\u0414\u043e\u0431\u0440\u043e \u043f\u043e\u0436\u0430\u043b\u043e\u0432\u0430\u0442\u044c \u043d\u0430 \u0441\u0430\u0439\u0442 \u043f\u0440\u043e\u0441\u0442\u043e \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0430",
+        "text": "\u041b\u0443\u0447\u0448\u0438\u0435 \u043c\u043e\u0431\u0438\u043b\u044b \u0442\u043e\u043b\u044c\u043a\u043e \u0443 \u043d\u0430\u0441:",
+        "creation_date": "2020-07-08",
+        "show": true,
+        "products": [
+            2,
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "client.article",
+    "pk": 2,
+    "fields": {
+        "title": "\u041d\u0435 \u0437\u043d\u0430\u0435\u0442\u0435 \u0447\u0442\u043e \u043e\u0434\u0435\u0442\u044c \u043b\u0435\u0442\u043e\u043c?",
+        "text": "\u0412\u043e\u0442 \u0447\u0442\u043e \u043c\u044b \u043c\u043e\u0436\u0435\u043c \u043f\u0440\u0435\u0434\u043b\u043e\u0436\u0438\u0442\u044c:",
+        "creation_date": "2020-07-08",
+        "show": true,
+        "products": [
+            6
+        ]
+    }
+}
+]
